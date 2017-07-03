@@ -13,3 +13,6 @@ buildNumber.properties
 
 #ignore idea
 .idea/
+
+#ignore iml
+*.iml
