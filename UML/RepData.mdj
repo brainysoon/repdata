@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFdBxcmWc3AK6k="
 					},
-					"name": "Data Model1",
+					"name": "repdata",
 					"ownedElements": [
 						{
 							"_type": "ERDDiagram",
