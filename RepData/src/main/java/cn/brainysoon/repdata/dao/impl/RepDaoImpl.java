@@ -5,12 +5,14 @@ import cn.brainysoon.repdata.entity.RepEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by brainy on 17-7-5.
  */
+@Repository
 public class RepDaoImpl implements RepDao {
 
     @Autowired
