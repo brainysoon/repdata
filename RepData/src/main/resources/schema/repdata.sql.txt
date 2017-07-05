@@ -1,0 +1,47 @@
+-- ------------------
+-- 用户表脚本
+-- ------------------
+DROP TABLE IF EXISTS repdata.user;
+CREATE TABLE repdata.user
+(
+  id         VARCHAR(22) PRIMARY KEY,       用户编号 
+  name       VARCHAR(20) UNIQUE NOT NULL,   姓名
+  password   VARCHAR(255)       NOT NULL,   密码
+  email      VARCHAR(50) UNIQUE,            电子邮件
+  phone      VARCHAR(15) UNIQUE,            手机号
+  avator     VARCHAR(255),                  头像
+  resume     VARCHAR(255),                  个人简介
+  github     VARCHAR(255),                  github
+  address    VARCHAR(255),                  住址
+  birthday   DATE,                          生日
+  domain     VARCHAR(255),                  个人网站
+  updateTime DATETIME           NOT NULL,   上次更新时间
+  mark       INTEGER            NOT NULL,   标记
+  slead      INTEGER            NOT NULL,   是否被被删除
+  slat       VARCHAR(255)       NOT NULL    盐
+) ENGINE = InnoDB
+DEFAULT CHARSET = utf8;
+
+-- ----------------------
+-- rep 表脚本
+-- ----------------------
+DROP TABLE IF EXISTS repdata.rep;
+CREATE TABLE repdata.rep
+(
+  id         VARCHAR(22) PRIMARY KEY,       文件编号
+  userId     VARCHAR(22) UNIQUE NOT NULL,   
+  name       VARCHAR(255)       NOT NULL,   文件名称
+  label      VARCHAR(255)       NOT NULL,   关键字
+  info       VARCHAR(255),                  详细信息
+  size       INTEGER            NOT NULL,   文件大小
+  link       VARCHAR(255)       NOT NULL,   下载链接
+  extension  VARCHAR(10)        NOT NULL,   文件类型
+  open       INTEGER            NOT NULL,   是否开源
+  updateTime DATETIME           NOT NULL,   更新时间
+  mark       INTEGER            NOT NULL,   标记
+  slead      INTEGER            NOT NULL,   是否被删除
+  CONSTRAINT `user_rep_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION
+) ENGINE = InnoDB
+DEFAULT CHARSET = utf8;
