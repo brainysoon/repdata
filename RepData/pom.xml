@@ -107,19 +107,6 @@
         </dependency>
         <!--End of Staruts-->
 
-        <!--Start of Thymeleaf-->
-        <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf</artifactId>
-            <version>${thymeleaf.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf-spring4</artifactId>
-            <version>${thymeleaf.version}</version>
-        </dependency>
-        <!--End fo Thymeleaf-->
-
         <!--Start of Test-->
         <dependency>
             <groupId>junit</groupId>
@@ -155,14 +142,6 @@
             <artifactId>shiro-spring</artifactId>
             <version>${shiro.version}</version>
         </dependency>
-
-        <!--shiro thymeleaf extension-->
-        <dependency>
-            <groupId>com.github.theborakompanioni</groupId>
-            <artifactId>thymeleaf-extras-shiro</artifactId>
-            <version>${shiro-thymeleaf.version}</version>
-        </dependency>
-        <!--End of Shiro-->
 
         <!--Start of Servlet&JSTL-->
         <dependency>
