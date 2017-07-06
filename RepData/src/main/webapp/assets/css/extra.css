@@ -1,0 +1,83 @@
+ul li {
+    list-style: none;
+}
+
+.dataTables_filter {
+    float: right;
+}
+
+.dataTables_paginate.paging_bootstrap.pagination {
+    float: right;
+    margin-right: 15px;
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+.dataTables_paginate.paging_bootstrap.pagination li {
+    float: left;
+    margin: 0 1px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+/*.dataTables_paginate.paging_bootstrap.pagination li.disabled a {
+    color: #c7c7c7;
+}*/
+.dataTables_paginate.paging_bootstrap.pagination li a {
+    color: #797979;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+.dataTables_paginate.paging_bootstrap.pagination li.active a {
+    color: #797979;
+    background: #eee;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.dataTables_paginate.paging_bootstrap.pagination li a:hover {
+    background: #eeeeee;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+.new-contentarea input[type=file] {
+    width: 188px;
+    height: 60px;
+    background: #333;
+    margin: 0 auto;
+    position: absolute;
+    right: 50%;
+    margin-right: -94px;
+    top: 0;
+    right /*\**/: 0px \9;
+    margin-right /*\**/: 0px \9;
+    width /*\**/: 10px \9;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    z-index: 2;
+}
+
+#processbar {
+    background: #00A8B3;
+    height: 10px;
+    line-height: 10px;
+}
+
+.new-contentarea {
+    width: 165px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    float: left;
+}
+.detail-info{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.modal-dialog1{
+    width: 400px;
+}
