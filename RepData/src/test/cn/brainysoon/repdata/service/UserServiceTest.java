@@ -27,7 +27,7 @@ public class UserServiceTest {
         UserEntity userEntity = new UserEntity();
 
         userEntity.setId(DateTools.getRandomId22());
-        userEntity.setName("brainysoon");
+        userEntity.setName(userEntity.getId().substring(4));
         userEntity.setPassword("sxc19940115");
         userEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         userEntity.setMark(1);
@@ -37,5 +37,13 @@ public class UserServiceTest {
         String result = userService.saveUser(userEntity);
 
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void getUserByIdTest() {
+
+        UserEntity userEntity = userService.getUserById("20141702019");
+
+        Assert.assertNotNull(userEntity);
     }
 }

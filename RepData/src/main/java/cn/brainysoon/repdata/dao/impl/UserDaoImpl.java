@@ -28,11 +28,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     public UserEntity get(String id) {
-        return (UserEntity) this.getCurrentSession().load(UserEntity.class, id);
+
+        return (UserEntity) this.getCurrentSession().get(UserEntity.class, id);
     }
 
     public List<UserEntity> findAll() {
-        return this.getCurrentSession().createQuery("from user").list();
+        return this.getCurrentSession().createQuery("from user where slead>0").list();
     }
 
     public void persist(UserEntity entity) {
@@ -49,8 +50,10 @@ public class UserDaoImpl implements UserDao {
         this.getCurrentSession().saveOrUpdate(entity);
     }
 
-    public void delete(String id) {
-        this.getCurrentSession().delete(id);
+    public int delete(String id) {
+        return this.getCurrentSession().createSQLQuery(String
+                .format("UPDATE user SET slead=-1 WHERE id='%s'", id))
+                .executeUpdate();
     }
 
     public void flush() {

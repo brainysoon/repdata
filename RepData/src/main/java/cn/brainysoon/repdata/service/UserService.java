@@ -18,4 +18,16 @@ public interface UserService {
      * @return
      */
     String saveUser(UserEntity userEntity);
+
+    /**
+     * @param userEntity
+     * @return
+     */
+    int updateUser(UserEntity userEntity);
+
+    /**
+     * @param id
+     * @return
+     */
+    int deleteUser(String id);
 }

@@ -20,7 +20,7 @@ public interface CommonDao<T, PK extends Serializable> {
 
     void saveOrUpdate(T entity);
 
-    void delete(PK id);
+    int delete(PK id);
 
     void flush();
 }

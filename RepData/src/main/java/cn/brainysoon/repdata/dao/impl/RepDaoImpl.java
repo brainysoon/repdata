@@ -32,7 +32,7 @@ public class RepDaoImpl implements RepDao {
     }
 
     public List<RepEntity> findAll() {
-        return this.getCurrentSession().createQuery("from rep").list();
+        return this.getCurrentSession().createQuery("from rep WHERE slead>0").list();
     }
 
     public void persist(RepEntity entity) {
@@ -49,9 +49,11 @@ public class RepDaoImpl implements RepDao {
         this.getCurrentSession().saveOrUpdate(entity);
     }
 
-    public void delete(String id) {
+    public int delete(String id) {
 
-        this.getCurrentSession().delete(id);
+        return this.getCurrentSession().createSQLQuery(String
+                .format("UPDATE rep SET slead=-1 WHERE id='%s'", id))
+                .executeUpdate();
     }
 
     public void flush() {

@@ -22,4 +22,22 @@ public class UserServiceImpl implements UserService {
     public String saveUser(UserEntity userEntity) {
         return userDao.save(userEntity);
     }
+
+    public int updateUser(UserEntity userEntity) {
+
+        try {
+
+            userDao.saveOrUpdate(userEntity);
+
+            return 1;
+        } catch (Exception ex) {
+
+            return -1;
+        }
+
+    }
+
+    public int deleteUser(String id) {
+        return userDao.delete(id);
+    }
 }
