@@ -77,7 +77,11 @@ ul li {
     margin-top: 10px;
     font-size: 20px;
 }
+.detail-info ul li{
+    margin-top: 15px;
+}
 
 .modal-dialog1{
     width: 400px;
 }
+
