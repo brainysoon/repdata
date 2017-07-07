@@ -93,4 +93,28 @@ public class UserController extends BaseController {
 
         return result;
     }
+
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public Map userInfo() {
+
+        Map result = new HashMap();
+
+        try {
+
+            UserEntity userEntity = (UserEntity) session.getAttribute(Constant.SESSION_KEY_CURRENT_USER);
+
+            //重新从数据库拿
+            userEntity = userService.getUserById(userEntity.getId());
+
+            result.put(Constant.RESULT_KEY_STATUS, Constant.SUCESSED);
+            result.put(Constant.RESULT_KEY_RESULT, userEntity);
+
+        } catch (Exception ex) {
+
+            result.put(Constant.RESULT_KEY_STATUS, Constant.SUCESSED);
+            result.put(Constant.RESULT_KEY_MESSAGE, Constant.MESSAGE_ERROR_EXCEPTION);
+        }
+
+        return result;
+    }
 }
