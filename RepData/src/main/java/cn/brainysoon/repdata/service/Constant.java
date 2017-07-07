@@ -23,4 +23,8 @@ public interface Constant {
     String UPLOAD_FILE_SAVE_PATH = "/var/repdata/";
 
     String REP_DATA_ABSTRACT_URL_PRE_PATH = "http://localhost/repdata/";
+
+    String UPLOAD_AVATOR_SAVE_PATH = "/var/avator/";
+
+    String USER_AVATOR_URL_PRE_PATH = "http://localhost/avator/";
 }

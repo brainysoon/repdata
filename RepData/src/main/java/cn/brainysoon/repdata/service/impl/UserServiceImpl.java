@@ -8,7 +8,9 @@ import cn.brainysoon.repdata.service.UserService;
 import cn.brainysoon.repdata.utils.DateTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.sql.Timestamp;
 import java.util.Map;
 
@@ -73,5 +75,22 @@ public class UserServiceImpl implements UserService {
         userEntity.setSlead(Constant.SLEAD_ALIVE);
 
         return userDao.save(userEntity);
+    }
+
+    public UserEntity updateAvator(MultipartFile avator, String id) throws Exception {
+
+        //存储
+        String fileName = DateTools.getRandomId22() + "_src.png";
+        File avatorFile = new File(Constant.UPLOAD_AVATOR_SAVE_PATH, fileName);
+        avator.transferTo(avatorFile);
+        avatorFile.setReadable(true, false);
+
+        //更新
+        UserEntity userEntity = userDao.get(id);
+        userEntity.setAvator(Constant.USER_AVATOR_URL_PRE_PATH + fileName);
+
+        userDao.saveOrUpdate(userEntity);
+
+        return userEntity;
     }
 }
