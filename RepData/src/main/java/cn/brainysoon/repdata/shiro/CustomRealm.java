@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 /**
  * Created by brainy on 17-7-4.
  */
-@Component
 public class CustomRealm extends AuthorizingRealm implements Authorizer {
 
     @Override
