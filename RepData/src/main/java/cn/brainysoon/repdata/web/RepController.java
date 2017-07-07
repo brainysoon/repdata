@@ -99,4 +99,36 @@ public class RepController extends BaseController {
         return result;
     }
 
+    @RequestMapping(value = "/rep/updaterep", method = RequestMethod.POST)
+    public Map updateFileInfo(@RequestParam(value = "id") String id,
+                              @RequestParam(value = "name", required = false) String name,
+                              @RequestParam(value = "label", required = false) String label,
+                              @RequestParam(value = "info", required = false) String info,
+                              @RequestParam(value = "open", required = false) Boolean open) {
+
+        Map result = new HashMap();
+
+        try {
+
+            RepEntity repEntity = repService.updateRep(id, name, label, info, open);
+
+            if (repEntity != null) {
+
+                result.put(Constant.RESULT_KEY_STATUS, Constant.SUCESSED);
+                result.put(Constant.RESULT_KEY_RESULT, repEntity);
+            } else {
+
+                result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
+                result.put(Constant.RESULT_KEY_RESULT, "更新失败!");
+            }
+
+        } catch (Exception ex) {
+
+            result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
+            result.put(Constant.RESULT_KEY_MESSAGE, Constant.MESSAGE_ERROR_EXCEPTION);
+        }
+
+        return result;
+    }
+
 }

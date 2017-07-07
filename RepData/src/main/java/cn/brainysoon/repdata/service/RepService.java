@@ -27,4 +27,14 @@ public interface RepService {
      * @return
      */
     RepEntity saveRepByFile(MultipartFile file, String userId) throws Exception;
+
+    /**
+     * @param id
+     * @param name
+     * @param label
+     * @param info
+     * @param open
+     * @return
+     */
+    RepEntity updateRep(String id, String name, String label, String info, Boolean open) throws Exception;
 }

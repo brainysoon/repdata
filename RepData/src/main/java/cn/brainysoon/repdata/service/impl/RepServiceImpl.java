@@ -67,4 +67,35 @@ public class RepServiceImpl implements RepService {
 
         return repEntity;
     }
+
+    public RepEntity updateRep(String id, String name, String label, String info, Boolean open) throws Exception {
+
+        RepEntity repEntity = repDao.get(id);
+
+        //设置数据
+        if (name != null || !name.equals("")) {
+
+            repEntity.setName(name);
+        }
+
+        if (label != null || !label.equals("")) {
+
+            repEntity.setLabel(label);
+        }
+
+        if (info != null || !info.equals("")) {
+
+            repEntity.setInfo(info);
+        }
+
+        if (open != null) {
+
+            repEntity.setOpen(open ? 1 : -1);
+        }
+
+        //更新
+        repDao.saveOrUpdate(repEntity);
+
+        return repEntity;
+    }
 }
