@@ -33,6 +33,7 @@ public class RepController extends BaseController {
         } catch (Exception ex) {
 
             result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
+            result.put(Constant.RESULT_KEY_MESSAGE, "搜索的时候出现异常!");
         }
 
         return result;

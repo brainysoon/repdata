@@ -35,6 +35,8 @@ public class CommonController extends BaseController {
 
             result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
             result.put(Constant.RESULT_KEY_MESSAGE, "请输入账户名!");
+
+            return result;
         }
 
         //校验密码
@@ -42,6 +44,8 @@ public class CommonController extends BaseController {
 
             result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
             result.put(Constant.RESULT_KEY_MESSAGE, "请输入密码!");
+
+            return result;
         }
 
         //构建登录信息
@@ -110,6 +114,44 @@ public class CommonController extends BaseController {
 
             result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
             result.put(Constant.RESULT_KEY_MESSAGE, "出现异常!");
+        }
+
+        return result;
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public Map doRegister(@RequestParam(value = "name") String name,
+                          @RequestParam(value = "password") String password) {
+
+        Map result = new HashMap();
+
+        //判断空
+        if (name == null || name.equals("")) {
+
+            result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
+            result.put(Constant.RESULT_KEY_MESSAGE, "用户名不能为空!");
+            return result;
+        }
+
+        if (password == null || password.equals("")) {
+
+            result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
+            result.put(Constant.RESULT_KEY_MESSAGE, "密码不能为空!");
+
+            return result;
+        }
+
+        try {
+
+            String id = userService.registerUserByNameAndPassword(name, password);
+
+            result.put(Constant.RESULT_KEY_STATUS, Constant.SUCESSED);
+            result.put(Constant.RESULT_KEY_RESULT, id);
+
+        } catch (Exception ex) {
+
+            result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
+            result.put(Constant.RESULT_KEY_MESSAGE, "注册的时候出现异常!");
         }
 
         return result;

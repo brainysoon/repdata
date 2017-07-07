@@ -36,4 +36,11 @@ public interface UserService {
      * @return
      */
     UserEntity getUserByName(String name);
+
+    /**
+     * @param name
+     * @param password
+     * @return
+     */
+    String registerUserByNameAndPassword(String name, String password);
 }
