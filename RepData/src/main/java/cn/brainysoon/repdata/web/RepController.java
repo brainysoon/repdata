@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -66,4 +67,36 @@ public class RepController extends BaseController {
 
         return result;
     }
+
+    @RequestMapping(value = "/rep/saverep", method = RequestMethod.POST)
+    public Map saveFile(@RequestParam(value = "rep") MultipartFile file) {
+
+        Map result = new HashMap();
+
+        try {
+
+            UserEntity userEntity = (UserEntity) session.getAttribute(Constant.SESSION_KEY_CURRENT_USER);
+
+            RepEntity repEntity = repService.saveRepByFile(file, userEntity.getId());
+
+            if (repEntity != null) {
+
+                result.put(Constant.RESULT_KEY_STATUS, Constant.SUCESSED);
+                result.put(Constant.RESULT_KEY_RESULT, repEntity);
+            } else {
+
+                result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
+                result.put(Constant.RESULT_KEY_MESSAGE, "存储失败!");
+            }
+
+
+        } catch (Exception ex) {
+
+            result.put(Constant.RESULT_KEY_STATUS, Constant.FAILED);
+            result.put(Constant.RESULT_KEY_MESSAGE, Constant.MESSAGE_ERROR_EXCEPTION);
+        }
+
+        return result;
+    }
+
 }

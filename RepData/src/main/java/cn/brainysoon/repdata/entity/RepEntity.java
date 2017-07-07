@@ -21,6 +21,20 @@ public class RepEntity {
     private int mark;
     private int slead;
 
+    private String userId;
+
+    @Basic
+    @Column(name = "userId")
+    public String getUserId() {
+        return userId;
+    }
+
+    @Basic
+    @Column(name = "userId")
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     @Id
     @Column(name = "id")
     public String getId() {

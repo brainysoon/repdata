@@ -1,6 +1,7 @@
 package cn.brainysoon.repdata.service;
 
 import cn.brainysoon.repdata.entity.RepEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -20,4 +21,10 @@ public interface RepService {
      * @return
      */
     List<RepEntity> getRepByUserId(String userId);
+
+    /**
+     * @param file
+     * @return
+     */
+    RepEntity saveRepByFile(MultipartFile file, String userId) throws Exception;
 }

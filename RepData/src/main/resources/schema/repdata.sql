@@ -29,17 +29,17 @@ DROP TABLE IF EXISTS repdata.rep;
 CREATE TABLE repdata.rep
 (
   id         VARCHAR(22) PRIMARY KEY,
-  userId     VARCHAR(22) UNIQUE NOT NULL,
-  name       VARCHAR(255)       NOT NULL,
-  label      VARCHAR(255)       NOT NULL,
+  userId     VARCHAR(22)  NOT NULL,
+  name       VARCHAR(255) NOT NULL,
+  label      VARCHAR(255),
   info       VARCHAR(255),
-  size       INTEGER            NOT NULL,
-  link       VARCHAR(255)       NOT NULL,
-  extension  VARCHAR(10)        NOT NULL,
-  open       INTEGER            NOT NULL,
-  updateTime DATETIME           NOT NULL,
-  mark       INTEGER            NOT NULL,
-  slead      INTEGER            NOT NULL,
+  size       INTEGER      NOT NULL,
+  link       VARCHAR(255) NOT NULL,
+  extension  VARCHAR(10)  NOT NULL,
+  open       INTEGER      NOT NULL,
+  updateTime DATETIME     NOT NULL,
+  mark       INTEGER      NOT NULL,
+  slead      INTEGER      NOT NULL,
   CONSTRAINT `user_rep_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION
