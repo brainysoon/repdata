@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Map;
 
@@ -88,6 +89,66 @@ public class UserServiceImpl implements UserService {
         //更新
         UserEntity userEntity = userDao.get(id);
         userEntity.setAvator(Constant.USER_AVATOR_URL_PRE_PATH + fileName);
+
+        userEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+
+        userDao.saveOrUpdate(userEntity);
+
+        return userEntity;
+    }
+
+    public UserEntity updateUserInfo(String id, String email, String phone, String resume, String github, String address, Date birthday, String domain) throws Exception {
+
+        UserEntity userEntity = userDao.get(id);
+
+        boolean flag = false;
+
+        if (email != null && !email.equals("")) {
+
+            userEntity.setEmail(email);
+            flag = true;
+        }
+
+        if (phone != null && !phone.equals("")) {
+
+            userEntity.setPhone(phone);
+            flag = true;
+        }
+
+        if (resume != null && !resume.equals("")) {
+
+            userEntity.setResume(resume);
+            flag = true;
+        }
+
+        if (github != null && !github.equals("")) {
+
+            userEntity.setGithub(github);
+            flag = true;
+        }
+
+        if (address != null && !address.equals("")) {
+
+            userEntity.setAddress(address);
+            flag = true;
+        }
+
+        if (birthday != null) {
+
+            userEntity.setBirthday(birthday);
+            flag = true;
+        }
+
+        if (domain != null && !domain.equals("")) {
+
+            userEntity.setDomain(domain);
+            flag = true;
+        }
+
+        if (flag) {
+
+            userEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+        }
 
         userDao.saveOrUpdate(userEntity);
 

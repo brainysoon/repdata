@@ -72,25 +72,36 @@ public class RepServiceImpl implements RepService {
 
         RepEntity repEntity = repDao.get(id);
 
+        boolean flag = false;
+
         //设置数据
-        if (name != null || !name.equals("")) {
+        if (name != null && !name.equals("")) {
 
             repEntity.setName(name);
+            flag = true;
         }
 
-        if (label != null || !label.equals("")) {
+        if (label != null && !label.equals("")) {
 
             repEntity.setLabel(label);
+            flag = true;
         }
 
-        if (info != null || !info.equals("")) {
+        if (info != null && !info.equals("")) {
 
             repEntity.setInfo(info);
+            flag = true;
         }
 
         if (open != null) {
 
             repEntity.setOpen(open ? 1 : -1);
+            flag = true;
+        }
+
+        if (flag) {
+
+            repEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         }
 
         //更新
