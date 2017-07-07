@@ -68,4 +68,10 @@ public class RepDaoImpl implements RepDao {
                 .addEntity(RepEntity.class)
                 .list();
     }
+
+    public List<RepEntity> getRepByUserId(String userId) {
+        return this.getCurrentSession().createSQLQuery(
+                String.format("SELECT * FROM rep WHERE rep.userId='%s'", userId)
+        ).addEntity(RepEntity.class).list();
+    }
 }

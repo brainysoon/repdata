@@ -14,4 +14,10 @@ public interface RepDao extends CommonDao<RepEntity, String> {
      * @return
      */
     List<RepEntity> getRepByKey(String key);
+
+    /**
+     * @param userId
+     * @return
+     */
+    List<RepEntity> getRepByUserId(String userId);
 }

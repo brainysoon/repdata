@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
         userEntity.setName(name);
 
         //加密密码
-        Map<String, String> encriptResult = securityService.encodePassword(name, userEntity.getId());
+        Map<String, String> encriptResult = securityService.encodePassword(password, userEntity.getId());
 
         userEntity.setPassword(encriptResult.get(SecurityService.ENCODE_RESULT_KEY_PASSWORD));
         userEntity.setSlat(encriptResult.get(SecurityService.ENCODE_RESULT_KEY_SALT));

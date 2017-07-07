@@ -21,4 +21,8 @@ public class RepServiceImpl implements RepService {
 
         return repDao.getRepByKey(key);
     }
+
+    public List<RepEntity> getRepByUserId(String userId) {
+        return repDao.getRepByUserId(userId);
+    }
 }

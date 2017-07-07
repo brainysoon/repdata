@@ -33,16 +33,14 @@
                             <!--<div class="logo text-center"><img src="assets/img/logo-dark.png" alt="Klorofil Logo"></div>
                             --><p class="lead">登录账号</p>
                         </div>
-                        <form class="form-auth-small" action="">
+                        <form class="form-auth-small" action="http://localhost:8080/login" method="post">
                             <div class="form-group">
-                                <label for="signin-user" class="control-label sr-only">Email</label>
                                 <input type="text" class="form-control" id="signin-user"
-                                       value="" placeholder="用户名">
+                                       value="" placeholder="用户名" name="name">
                             </div>
                             <div class="form-group">
-                                <label for="signin-password" class="control-label sr-only">Password</label>
                                 <input type="password" class="form-control" id="signin-password"
-                                       value="" placeholder="密码">
+                                       value="" placeholder="密码" name="password">
                             </div>
                             <div class="form-group clearfix">
                                 <label class="fancy-checkbox element-left">

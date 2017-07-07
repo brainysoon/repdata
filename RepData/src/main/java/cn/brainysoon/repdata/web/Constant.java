@@ -23,4 +23,6 @@ public interface Constant {
     String RESULT_KEY_MESSAGE = "message";
 
     String SESSION_KEY_CURRENT_USER = "current_user";
+
+    String MESSAGE_ERROR_EXCEPTION = "访问时出现异常!";
 }

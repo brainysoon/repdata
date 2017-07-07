@@ -127,7 +127,8 @@
         </property>
         <property name="filterChainDefinitions">
             <value>
-                /*=anon
+                /rep/**=user
+                /**=anon
             </value>
         </property>
     </bean>

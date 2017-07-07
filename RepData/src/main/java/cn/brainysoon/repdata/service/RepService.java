@@ -14,4 +14,10 @@ public interface RepService {
      * @return
      */
     List<RepEntity> machRepByKey(String key);
+
+    /**
+     * @param userId
+     * @return
+     */
+    List<RepEntity> getRepByUserId(String userId);
 }
