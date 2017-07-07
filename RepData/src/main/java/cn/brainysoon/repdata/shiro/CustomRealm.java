@@ -7,10 +7,12 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.Authorizer;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by brainy on 17-7-4.
  */
+@Component
 public class CustomRealm extends AuthorizingRealm implements Authorizer {
 
     @Override
