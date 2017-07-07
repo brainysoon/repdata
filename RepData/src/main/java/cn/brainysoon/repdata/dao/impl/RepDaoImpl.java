@@ -60,4 +60,12 @@ public class RepDaoImpl implements RepDao {
 
         this.getCurrentSession().flush();
     }
+
+    public List<RepEntity> getRepByKey(String key) {
+
+        return this.getCurrentSession().createSQLQuery(
+                String.format("SELECT * from rep where rep.name like '%s' OR rep.label like '%s'", key, key))
+                .addEntity(RepEntity.class)
+                .list();
+    }
 }
