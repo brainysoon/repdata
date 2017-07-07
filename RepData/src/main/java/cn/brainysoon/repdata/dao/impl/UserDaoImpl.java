@@ -60,4 +60,22 @@ public class UserDaoImpl implements UserDao {
 
         this.getCurrentSession().flush();
     }
+
+    public UserEntity getUserByName(String name) {
+
+        UserEntity userEntity = null;
+
+        try {
+
+            userEntity = (UserEntity) this.getCurrentSession().createSQLQuery(
+                    String.format("SELECT * FROM user WHERE name='%s'", name)
+            ).addEntity(UserEntity.class).list().get(0);
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+        }
+
+        return userEntity;
+
+    }
 }

@@ -6,4 +6,10 @@ import cn.brainysoon.repdata.entity.UserEntity;
  * Created by brainy on 17-7-5.
  */
 public interface UserDao extends CommonDao<UserEntity, String> {
+
+    /**
+     * @param name
+     * @return
+     */
+    UserEntity getUserByName(String name);
 }

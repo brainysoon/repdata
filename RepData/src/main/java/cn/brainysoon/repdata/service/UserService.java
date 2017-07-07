@@ -30,4 +30,10 @@ public interface UserService {
      * @return
      */
     int deleteUser(String id);
+
+    /**
+     * @param name
+     * @return
+     */
+    UserEntity getUserByName(String name);
 }

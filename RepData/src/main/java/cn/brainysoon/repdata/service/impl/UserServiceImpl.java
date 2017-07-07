@@ -40,4 +40,8 @@ public class UserServiceImpl implements UserService {
     public int deleteUser(String id) {
         return userDao.delete(id);
     }
+
+    public UserEntity getUserByName(String name) {
+        return userDao.getUserByName(name);
+    }
 }

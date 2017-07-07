@@ -19,4 +19,8 @@ public interface Constant {
     String RESULT_KEY_STATUS = "status";
 
     String RESULT_KEY_RESULT = "result";
+
+    String RESULT_KEY_MESSAGE = "message";
+
+    String SESSION_KEY_CURRENT_USER = "current_user";
 }
